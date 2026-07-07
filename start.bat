@@ -19,5 +19,10 @@ if errorlevel 1 (
 )
 
 echo Запуск VLauncher...
-python main.py
-if errorlevel 1 pause
+where pythonw >nul 2>&1
+if errorlevel 1 (
+    start "" python main.py
+) else (
+    start "" pythonw main.py
+)
+exit /b 0
